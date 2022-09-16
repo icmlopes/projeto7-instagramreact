@@ -1,81 +1,42 @@
-export default function Stories(){
-    return(
-        <div class="stories">
-          <div class="story">
-            <div class="imagem">
-              <img src="assets/img/9gag.svg" />
-            </div>
-            <div class="usuario">
-              9gag
-            </div>
-          </div>
+function StoryImg(props) {
+    return (
+        <li class="imagem">
+            <img src={props.imagem} alt="Foto perfil" />
+        </li>
+    )
+}
 
-          <div class="story">
-            <div class="imagem">
-              <img src="assets/img/meowed.svg" />
-            </div>
-            <div class="usuario">
-              meowed
-            </div>
-          </div>
+function StoryNome(props) {
+    return (
+        <li class="usuario">
+            <p>{props.nome}</p>
+        </li>
+    )
+} 
 
-          <div class="story">
-            <div class="imagem">
-              <img src="assets/img/barked.svg" />
-            </div>
-            <div class="usuario">
-              barked
-            </div>
-          </div>
+export default function Stories() {
 
-          <div class="story">
-            <div class="imagem">
-              <img src="assets/img/nathanwpylestrangeplanet.svg" />
-            </div>
-            <div class="usuario">
-              nathanwpylestrangeplanet
-            </div>
-          </div>
+    const listaStory = [
+        { nome: "9gag", imagem: "assets/img/9gag.svg" },
+        { nome: "meowed", imagem: "assets/img/meowed.svg" },
+        { nome: "barked", imagem: "assets/img/barked.svg" },
+        { nome: "nathanwpylestrangeplanet", imagem: "assets/img/nathanwpylestrangeplanet.svg" },
+        { nome: "wawawicomics", imagem: "assets/img/wawawicomics.svg" },
+        { nome: "respondeai", imagem: "assets/img/respondeai.svg" },
+        { nome: "filomoderna", imagem: "assets/img/filomoderna.svg" },
+        { nome: "memeriagourmet", imagem: "assets/img/memeriagourmet.svg" }
+    ]
 
-          <div class="story">
-            <div class="imagem">
-              <img src="assets/img/wawawicomics.svg" />
+    return (
+        <ul class="stories">
+            <div className="story">
+                {listaStory.map((props) => <StoryImg imagem={props.imagem} />)}
+                {listaStory.map((props) => <StoryNome nome={props.nome} />)}
             </div>
-            <div class="usuario">
-              wawawicomics
-            </div>
-          </div>
 
-          <div class="story">
-            <div class="imagem">
-              <img src="assets/img/respondeai.svg" />
+            <div class="setinha">
+                <ion-icon name="chevron-forward-circle"></ion-icon>
             </div>
-            <div class="usuario">
-              respondeai
-            </div>
-          </div>
-
-          <div class="story">
-            <div class="imagem">
-              <img src="assets/img/filomoderna.svg" />
-            </div>
-            <div class="usuario">
-              filomoderna
-            </div>
-          </div>
-
-          <div class="story">
-            <div class="imagem">
-              <img src="assets/img/memeriagourmet.svg" />
-            </div>
-            <div class="usuario">
-              memeriagourmet
-            </div>
-          </div>
-
-          <div class="setinha">
-            <ion-icon name="chevron-forward-circle"></ion-icon>
-          </div>
-        </div>
+        </ul>
     )
 }

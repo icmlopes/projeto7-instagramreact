@@ -105,7 +105,7 @@ body {
 .story {
   display: flex;
   height: 100%;
-  flex-direction: column;
+  /* flex-direction: column; */
   justify-content: space-around;
   align-items: center;
   padding: 14px 0;
