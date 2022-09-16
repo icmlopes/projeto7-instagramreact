@@ -1,7 +1,5 @@
 import Corpo from "./Corpo"
-import SideBar from "./SideBar"
 import NavBar from "./NavBar"
-import User from "./User"
 
 export default function App() {
     return (
