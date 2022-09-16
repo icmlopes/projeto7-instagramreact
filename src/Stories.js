@@ -1,18 +1,15 @@
-function StoryImg(props) {
+function Story(props) {
     return (
-        <li class="imagem">
-            <img src={props.imagem} alt="Foto perfil" />
-        </li>
+        <div>
+            <li class="imagem">
+                <img src={props.imagem} alt="Foto perfil" />
+            </li>
+            <li class="usuario">
+                <p>{props.nome}</p>
+            </li>
+        </div>
     )
 }
-
-function StoryNome(props) {
-    return (
-        <li class="usuario">
-            <p>{props.nome}</p>
-        </li>
-    )
-} 
 
 export default function Stories() {
 
@@ -30,8 +27,7 @@ export default function Stories() {
     return (
         <ul class="stories">
             <div className="story">
-                {listaStory.map((props) => <StoryImg imagem={props.imagem} />)}
-                {listaStory.map((props) => <StoryNome nome={props.nome} />)}
+                {listaStory.map((props) => <Story imagem={props.imagem} nome={props.nome}/>)}
             </div>
 
             <div class="setinha">

@@ -92,7 +92,7 @@ body {
 }
 
 .stories {
-  display: flex;
+  /* display: flex; */
   align-items: center;
   height: 118px;
   border-radius: 3px;
