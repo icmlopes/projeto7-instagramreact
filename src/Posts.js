@@ -14,7 +14,7 @@ function PerfilPost(props) {
           <ion-icon name="ellipsis-horizontal"></ion-icon>
         </div>
       </div>
-
+   
       <div class="conteudo">
       <img src={props.conteudo} alt="Foto feed" />
       </div>
