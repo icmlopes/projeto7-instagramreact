@@ -242,6 +242,10 @@ body {
   color: #262626;
 }
 
+.sugestao{
+  width: 100%;
+}
+
 .sidebar .sugestoes .titulo {
   display: flex;
   justify-content: space-between;

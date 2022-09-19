@@ -1,75 +1,69 @@
 function PerfilPost(props) {
-    return (
-        <li class="usuario">
-            <img src={props.imagem} alt="Foto" />
-            <p>{props.nome}</p>
-        </li>
-    )
-}
+  console.log(props.index)
 
-function Post(props) {
-    return (
-        <div class="conteudo">
-            <img src={props.conteudo} alt="Foto feed" />
+  return (
+    <div class="post">
+      <div class="topo">
+
+        <li class="usuario">
+          <img src={props.imagem} alt="Foto" />
+          <p>{props.nome}</p>
+        </li>
+
+        <div class="acoes">
+          <ion-icon name="ellipsis-horizontal"></ion-icon>
         </div>
-    )
+      </div>
+
+      <div class="conteudo">
+      <img src={props.conteudo} alt="Foto feed" />
+      </div>
+
+      <div class="fundo">
+          <div class="acoes">
+            <div>
+              <ion-icon name="heart-outline"></ion-icon>
+              <ion-icon name="chatbubble-outline"></ion-icon>
+              <ion-icon name="paper-plane-outline"></ion-icon>
+            </div>
+            <div>
+              <ion-icon name="bookmark-outline"></ion-icon>
+            </div>
+          </div>
+
+          <Curtida perfil={props.perfilCurtida} nick={props.curtida} />
+
+        </div>
+
+    </div>
+  )
 }
 
 function Curtida(props) {
-    return (
-        <div class="curtidas">
-            <img src={props.perfil} alt="Foto perfil" />
-            <li class="texto">
-                Curtido por <strong>{props.nick}</strong> e <strong>outras 101.523 pessoas</strong>
-            </li>
-        </div>
-    )
+  return (
+    <div class="curtidas">
+      <img src={props.perfil} alt="Foto perfil" />
+      <li class="texto">
+        Curtido por <strong>{props.nick}</strong> e <strong>outras 101.523 pessoas</strong>
+      </li>
+    </div>
+  )
 }
 
 export default function Posts() {
 
-    const listaPost = [
-        { nome: "meowed", imagem: "assets/img/meowed.svg", conteudo: "assets/img/gato-telefone.svg" },
-        { nome: "barked", imagem: "assets/img/barked.svg", conteudo: "assets/img/dog.svg" }
-    ]
+  const listaPost = [
+    { nome: "meowed", imagem: "assets/img/meowed.svg", conteudo: "assets/img/gato-telefone.svg", curtida: "respondeai", perfilCurtida: "assets/img/respondeai.svg" },
+    { nome: "barked", imagem: "assets/img/barked.svg", conteudo: "assets/img/dog.svg", curtida: "adorable_animals", perfilCurtida: "assets/img/adorable_animals.svg" }
+  ]
 
-    const listaCurtida = [
-        { nick: "respondeai", perfil: "assets/img/respondeai.svg" },
-        { nick: "adorable_animals", perfil: "assets/img/adorable_animals.svg" }
-    ]
+  return (
+    <ul class="posts">
+      
+        {listaPost.map((infoPost) => <PerfilPost imagem={infoPost.imagem} nome={infoPost.nome} conteudo={infoPost.conteudo} curtida={infoPost.curtida} perfilCurtida={infoPost.perfilCurtida}/>)}
 
-    return (
-        <ul class="posts">
-            <div class="post">
-                <div class="topo">
-
-                    {listaPost.map((props) => <PerfilPost imagem={props.imagem} nome={props.nome} />)}
-
-                    <div class="acoes">
-                        <ion-icon name="ellipsis-horizontal"></ion-icon>
-                    </div>
-                </div>
-                <div>
-                    {listaPost.map((props) => <Post conteudo={props.conteudo} />)}
-                </div>
-                <div class="fundo">
-                    <div class="acoes">
-                        <div>
-                            <ion-icon name="heart-outline"></ion-icon>
-                            <ion-icon name="chatbubble-outline"></ion-icon>
-                            <ion-icon name="paper-plane-outline"></ion-icon>
-                        </div>
-                        <div>
-                            <ion-icon name="bookmark-outline"></ion-icon>
-                        </div>
-                    </div>
-
-                    {listaCurtida.map((props) => <Curtida perfil={props.perfil} nick={props.nick} />)}
-
-                </div>
-            </div>
-        </ul>
-    )
+    </ul>
+  )
 }
 
 /* <div class="post">

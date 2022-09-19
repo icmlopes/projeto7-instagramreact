@@ -1,12 +1,44 @@
-export default function Sugestoes() {
+function SugestaoSeguir(props) {
     return (
-        <div class="sugestoes">
+        <div class="sugestao">
+            <li class="usuario">
+                <img src={props.imagem} alt="Foto perfil" />
+                <div class="texto">
+                    <p class="nome">{props.nome}</p>
+                    <p class="razao">{props.razao}</p>
+                </div>
+            </li>
+            <div class="seguir">Seguir</div>
+        </div>
+    )
+}
+
+export default function Sugestoes() {
+
+    const listaSugestoes = [
+        { nome: "bad.vibes.memes", imagem: "assets/img/bad.vibes.memes.svg", razao: "Segue você" },
+        { nome: "chibirdart", imagem: "assets/img/chibirdart.svg", razao: "Segue você" },
+        { nome: "razoesparaacreditar", imagem: "assets/img/razoesparaacreditar.svg", razao: "Novo no instagram" },
+        { nome: "adorable_animals", imagem: "assets/img/adorable_animals.svg", razao: "Segue você" },
+        { nome: "smallcutecats", imagem: "assets/img/smallcutecats.svg", razao: "Segue você" },
+    ]
+
+    return (
+        <ul class="sugestoes">
             <div class="titulo">
                 Sugestões para você
                 <div>Ver tudo</div>
             </div>
 
-            <div class="sugestao">
+
+
+            {listaSugestoes.map((props) => <SugestaoSeguir imagem={props.imagem} nome={props.nome} razao={props.razao} />)}
+
+        </ul>   
+
+             
+
+            /* <div class="sugestao">
                 <div class="usuario">
                     <img src="assets/img/bad.vibes.memes.svg" alt="Foto perfil"/>
                     <div class="texto">
@@ -64,7 +96,6 @@ export default function Sugestoes() {
                 </div>
 
                 <div class="seguir">Seguir</div>
-            </div>
-        </div>
+            </div> */
     )
 }
