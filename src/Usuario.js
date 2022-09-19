@@ -7,11 +7,6 @@ export default function Usuario() {
     const [nome, setNome] = React.useState("catanacomics")
     const [foto, setFoto] = React.useState("assets/img/catanacomics.svg")
 
-    function alterarNome(){
-        const nomePrompt = prompt("Qual seu nome?")
-        setNome(nomePrompt)
-    }
-
     function alterarFoto(){
         const fotoPrompt = prompt("Link da foto aqui!")
         setFoto(fotoPrompt)
@@ -19,7 +14,7 @@ export default function Usuario() {
 
     return (
         <div class="usuario">
-            <img src="assets/img/catanacomics.svg" alt="Foto perfil"/>
+            <img onClick={alterarFoto} src={foto}/>
             <div class="texto">
                 <strong>catanacomics</strong>
                 <span>
